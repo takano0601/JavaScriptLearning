@@ -1,0 +1,45 @@
+{
+  "name": "mixi-js-training",
+  "version": "0.0.0",
+  "description": "Training course repository for JavaScript by mixi",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "bower install",
+    "help": "gulp help",
+    "start": "gulp serve",
+    "presentation": "reveal-md README.md --theme solarized --separator '^\\n\\n\\n' --verticalSeparator '^\\n\\n'",
+    "lint-stage-1": "gulp lint-stage-1",
+    "lint-stage-2": "gulp lint-stage-2",
+    "lint-stage-3": "gulp lint-stage-3",
+    "lint-stage-4": "gulp lint-stage-4",
+    "lint-stage-5": "gulp lint-stage-5",
+    "lint-stage-6": "gulp lint-stage-6",
+    "lint-stage-7": "gulp lint-stage-7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mixi-inc/JavaScriptTraining.git"
+  },
+  "keywords": [
+    "training"
+  ],
+  "author": "Kuniwak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mixi-inc/JavaScriptTraining/issues"
+  },
+  "homepage": "https://github.com/mixi-inc/JavaScriptTraining",
+  "devDependencies": {
+    "body-parser": "1.14.0",
+    "express": "4.13.3",
+    "gulp": "3.9.0",
+    "gulp-eslint": "1.0.0",
+    "gulp-help": "1.6.1",
+    "gulp-nodemon": "2.0.4",
+    "gulp-util": "3.0.6"
+  },
+  "dependencies": {
+    "bower": "1.5.2",
+    "reveal-md": "0.0.20"
+  }
+}
