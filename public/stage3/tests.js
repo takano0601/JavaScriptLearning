@@ -94,7 +94,6 @@ describe('ステージ3（意図した通りに DOM 要素の構造を変更で�
       var element = document.querySelector('.turquoise');
       element.appendChild(elementToAdd);
       // 上の elementToAdd を追加するコードをここに記述してください。
-      
 
       var turquoise = document.querySelector('.turquoise');
       expect(turquoise.childNodes.length).to.equal(2);
@@ -106,6 +105,8 @@ describe('ステージ3（意図した通りに DOM 要素の構造を変更で�
     it('5 番の青色の要素の最初に要素を追加する', function() {
       var elementToAdd = document.createElement('span');
       elementToAdd.textContent = '\uD83D\uDC1F';
+      var element = document.querySelector('blockquote');
+      element.insertBefore(elementToAdd,element.firstChild);
 
       // 上の elementToAdd を、5 番の青色の要素の最初に追加するコードを
       // ここに記述してください。
