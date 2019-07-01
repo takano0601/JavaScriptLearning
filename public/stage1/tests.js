@@ -208,7 +208,7 @@ describe('ステージ1（意図した DOM 要素を取得できるようにな�
     it('6 番の紫色の要素を querySelector を使って1つ取得できる', function() {
 
       // 'change me!' を書き換えてください。
-      var element = document.querySelector('li');
+      var element = document.querySelector('[data-js-training="blueviolet"]');
 
       expect(element).to.have.deep.property(secret('qngnfrg.wfGenvavat'),
                                             secret('oyhrivbyrg'));
@@ -217,16 +217,20 @@ describe('ステージ1（意図した DOM 要素を取得できるようにな�
 
 
   describe('応用 CSS セレクタ編', function() {
-  describe('応用 CSS セレクタ編', function() {
+
     it('7 番の赤色の要素を ID セレクタを使わずに1つ取得できる', function() {
 
       // チュートリアル
       //
       // 'change me!' を '.js-training:nth-child(2) li'
       // に書き換えてください。
-      var selector = 'change me!';
-
+      var selector = '.js-training:nth-child(1) li';
+      //liの一つ目になぜなるんでしょうか！
+      //早いもの順ですか？
+      // .js-trainingって２個あるやないですか？その2番目つまり2行目
+      //liもいくつもぶら下がってます！
       var element = document.querySelector(selector);
+      console.log(element);
       expect(selector).to.not.have.string('#');
       expect(element).to.have.property(secret('vq'), secret('oebja'));
     });
@@ -235,7 +239,7 @@ describe('ステージ1（意図した DOM 要素を取得できるようにな�
     it('8 番の橙色の要素を ID セレクタを使わずに1つ取得できる', function() {
 
       // 'change me!' を書き換えてください。
-      var selector = 'change me!';
+      var selector = '.js-training:nth-child(2) li:nth-child(2)';
 
       var element = document.querySelector(selector);
       expect(selector).to.not.have.string('#');
@@ -249,7 +253,9 @@ describe('ステージ1（意図した DOM 要素を取得できるようにな�
     it('12 番の紫色の要素を、属性セレクタと :nth-child(N) セレクタを使わずに1つ取得できる', function() {
 
       // 'change me!' を書き換えてください。
-      var selector = 'change me!';
+      var selector = '[data-js-training="darkorchid"]';
+
+
 
       var element = document.querySelector(selector);
       expect(selector).to.not.match(/\[\s*name\s*[~\|\^\$\*]?=/);
@@ -338,7 +344,11 @@ describe('ステージ1（意図した DOM 要素を取得できるようにな�
     it('動いている寿司要素を取得する', function() {
 
       // 'change me!' を書き換えてください。
-      var element = 'change me!';
+      var element = document.querySelector('x-flying-sushi-monster');
+
+
+
+
 
       expect(element).to.have.deep.property(
         secret('grkgPbagrag'), '\uD83C\uDF63');

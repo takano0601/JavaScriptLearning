@@ -11,7 +11,9 @@ describe('ステージ3（意図した通りに DOM 要素の構造を変更で�
       // var element = document.querySelector('#firebrick');
       // var ghost = document.querySelector('.firebrick-ghost');
       // element.removeChild(ghost);
-
+      var element = document.querySelector('#firebrick');
+      var ghost = document.querySelector('.firebrick-ghost');
+      element.removeChild(ghost);
 
       var firebrick = document.getElementById('firebrick');
       expect(firebrick.childNodes.length).to.equal(1);
@@ -22,7 +24,9 @@ describe('ステージ3（意図した通りに DOM 要素の構造を変更で�
     it('2 番の要素からインベーダー要素を除去する', function() {
 
       // ここにコードを記述してください。
-
+      var element = document.getElementById('chocolate');
+      var trash = document.querySelector('.chocolate-space-invader');
+      element.removeChild(trash);
 
       var darkorange = document.getElementById('chocolate');
       expect(darkorange.childNodes.length).to.equal(1);
@@ -33,8 +37,52 @@ describe('ステージ3（意図した通りに DOM 要素の構造を変更で�
     it('3 番の要素の左右の幽霊要素をすべて除去する', function() {
 
       // ここにコードを記述してください。
+      var element = document.querySelector('.mediumseagreen');
+      var ghosts = document.getElementsByClassName('mediumseagreen-ghosts');
+      //繰り返しとかするものでしょうか？そうやね！！
+      // ghosts.forEach( ghost => {
+      //   element.removeChild(ghost);
+      // });
+      // console.log(ghosts);
+      // for(var i = 0, var len = ghosts.length ; i > ghosts; i++){
+    
+      //   console.log(ghosts[i]);
+      //   element.removeChild(ghosts[i]);
+      
+      for(var i = ghosts.length - 1; i >= 0;i--){
+        console.log(i);
+        element.removeChild(ghosts[i]);
+      }
+      //TODO:できました！
+
+      // 正解↓
+      // var element = document.querySelector('.mediumseagreen');
+      // var ghosts = element.querySelectorAll('.mediumseagreen-ghosts');
+      // var ghost;
+
+      // // 残念なことに、querySelectorAll の返すオブジェクトは配列ではないため、
+      // // Array#forEach が使えません。代わりに、for ループを使っています。
+      // for (var idx = 0, len = ghosts.length; idx < len; idx++) {
+      //   ghost = ghosts[idx];
+      //   element.removeChild(ghost);
+      // }
+      // 正解↑
+
+      // foreach版↓
+      // JavaScript に慣れた人であれば、いったん配列に変換してから、
+      // forEach を使うことが多いようです。また、lodash や underscore といった
+      // ユーティリティライブラリは、配列のようなオブジェクトでも使える
+      // forEach 関数を提供しているので、そちらを利用することもあります。
+      //
+      // function arrayFrom(arrayLike) {
+      //   return Array.prototype.slice.call(arrayLike);
+      // }
+      //
+      // arrayFrom(ghosts).forEach(element.removeChild.bind(element));
+      // foreach版↑
 
 
+      // 何故なんでしょうか！書き直してみます
       var darkorange = document.querySelector('.mediumseagreen');
       expect(darkorange).to.have.property('textContent', '3\uD83C\uDF3F');
     });
@@ -43,9 +91,10 @@ describe('ステージ3（意図した通りに DOM 要素の構造を変更で�
     it('4 番の水色の要素の最後に要素を追加する', function() {
       var elementToAdd = document.createElement('span');
       elementToAdd.textContent = '\uD83D\uDC2C';
-
+      var element = document.querySelector('.turquoise');
+      element.appendChild(elementToAdd);
       // 上の elementToAdd を追加するコードをここに記述してください。
-
+      
 
       var turquoise = document.querySelector('.turquoise');
       expect(turquoise.childNodes.length).to.equal(2);
