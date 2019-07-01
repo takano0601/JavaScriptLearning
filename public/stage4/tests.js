@@ -24,6 +24,10 @@ describe('ステージ4（意図通りにイベントを利用できる）', fun
       //
       // ここに上記のどちらかのコードを記述してください。
 
+      var element = document.getElementById('firebrick');
+      element.addEventListener('click',function(){
+        element.textContent = Number(element.textContent) + 1;
+      });
 
       var firebrick = document.getElementById('firebrick');
       firebrick.dispatchEvent(createClickEvent());
@@ -37,7 +41,10 @@ describe('ステージ4（意図通りにイベントを利用できる）', fun
     it('2 番の要素の click イベントで要素内の数字を 1 ずつ小さくできる', function() {
 
       // ここにコードを記述してください。
-
+      var element = document.getElementById('chocolate');
+      element.addEventListener('click',function(){
+        element.textContent = Number(element.textContent) - 1;
+      })
 
       var chocolate = document.getElementById('chocolate');
       chocolate.dispatchEvent(createClickEvent());
