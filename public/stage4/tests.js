@@ -58,8 +58,14 @@ describe('ステージ4（意図通りにイベントを利用できる）', fun
     it('3 番の要素の click イベントで要素を 10 度ずつ回転できる', function() {
 
       // ここにコードを記述してください。
+      var element = document.querySelector('.mediumseagreen');
+      var angleDegree = 0;
+      element.addEventListener('click',function(){
+        angleDegree += 10;
+        element.style.transform = 'rotate(' + angleDegree + 'deg)';
+      })
 
-
+      // TODO: なんか元から回転している、、、↑
       var mediumseagreen = document.querySelector('.mediumseagreen');
       mediumseagreen.dispatchEvent(createClickEvent());
       expect(mediumseagreen).to.have.deep.property(
@@ -78,6 +84,11 @@ describe('ステージ4（意図通りにイベントを利用できる）', fun
 
       var turquoise = document.querySelector('.turquoise');
       var turquoiseInput = turquoise.querySelector('input');
+
+      turquoiseInput.addEventListener('change',function(){
+        var angleDegree = turquoiseInput.value;
+        turquoise.style.transform = 'rotate(' + angleDegree + 'deg)';
+      })
 
       simulateChangeEvent(turquoiseInput, 10);
       expect(turquoise).to.have.deep.property(
@@ -100,8 +111,10 @@ describe('ステージ4（意図通りにイベントを利用できる）', fun
       // なお、expect(steelblue).to.be.null は上記のテストの要件を満たして
       // いないので、正解ではありません。
 
-      var steelblue = document.querySelector('.steelblue');
-      expect(steelblue).to.have.property('textContent', '5 \uD83D\uDC33');
+      window.addEventListener('DOMContentLoaded',function(){
+        var steelblue = document.querySelector('.steelblue');
+        expect(steelblue).to.have.property('textContent', '5 \uD83D\uDC33');
+      })
       done();
     });
   });
